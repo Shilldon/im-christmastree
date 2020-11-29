@@ -1,6 +1,12 @@
+
+$(window).on('load',function(){
+  $('#instructionsModal').modal('show');
+});
 $(document).ready(function () {  
   outside = true;
   populateIconTable();
+
+  
   $(".snow").css("background-image", "none");
   mouth("REST");
   $("body").on("keydown", function(ev) {
