@@ -1,0 +1,381 @@
+body {
+    overflow: hidden;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: url('../graphics/backgrounds/background.jpg') no-repeat fixed center;
+    background-size: cover;
+}
+
+button {
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+.carollers {
+    pointer-events: none;
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.caroller {
+    align-self: flex-end;
+    animation-duration: 1s;
+    animation-iteration-count: 1;  
+    transform-origin: bottom;  
+    position: relative;
+    height: 30vh;
+    width: 15.216vh;
+    background-size: 100%;
+    transform: translateY(40vh);
+    opacity: 0;
+}
+
+#caroller {
+
+    height: 30vh;
+    width: 15.216vh;
+}
+
+.christmas-sign {
+    pointer-events: none;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    display: none;
+    transition-duration: 1s;
+    transition-property: transform;    
+    transform: translate(-50%,-40%) scale(0.01,0.01);
+    height: 60vh;
+    width: 60vw;
+    background-image: url(../graphics/backgrounds/christmas-sign.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.christmas-text {
+    bottom: 20%;
+    right:10%;
+    position: absolute;
+    width: 40vw;
+}
+
+.control-arrow {
+    height: 5vh;
+}
+
+.mouth {
+    position: absolute;
+    width: 37.15%;
+    height: 13.55%;
+    top: 49%;
+    left: 35%;
+    background-image: url(../graphics/mouth/mouths.png);
+    background-position: 0 0;
+    background-size: 400%, 300%;
+}
+
+.tree-container {
+    background-color: transparent;
+    height: 70vh;
+    border: none;
+    z-index:0;
+}
+
+.tree {
+    height: 60vh;
+}
+
+.tree-area {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.night {
+    height:100%;
+    width:100%;
+    opacity:0;
+    background-color:black;
+    position: absolute;
+    top:0;
+    left:0;
+    pointer-events: none;
+}
+
+.snow {
+    height:100%;
+    position: absolute;
+    width:100%;
+    pointer-events: none;
+    background: url('../graphics/backgrounds/snow.gif') fixed center;
+    background-size: cover;
+    z-index:1;
+}
+
+
+.tab-container {
+    z-index:6;
+    width:100%;
+    height:80px;
+}
+
+.tab-container-bottom {
+    position: absolute;
+    right:0;
+    bottom:0;
+    z-index:6;
+    width:50%;
+    height:110px;
+}
+
+.switch-container {
+    position: relative;
+    float: right;
+    right:-320px;
+    transition: ease-in-out;
+    transition-duration: 0.5s;   
+}
+
+.save-options {
+    position: absolute;
+    top:25%;
+    left:50%;
+    transform: translate(-50%,0);
+}
+
+.save-options img {
+    width: 75%;
+    transition-duration: 0.25s;
+}
+
+.save-options img:active {
+    width: 75%;
+    transform: scale(0.75,0.75);
+}
+
+.save-switch {
+    transition-duration: 0.5s;
+}
+.save-switch:active {
+    transform:scale(0.8,0.8);
+    filter: brightness(0.3);   
+}
+
+.restart-switch {
+    transition-duration: 0.25s;
+}
+
+.restart-switch:active {
+    transform: rotate(90deg);    
+}
+
+#slider {
+    float:right;
+    position: relative;
+    height: 100px;
+    margin: 0 10px;
+    background-color: red;
+    border: none;
+    outline: none;    
+}
+
+.switch {
+    float:right;
+    position: relative;
+    height: 70px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.switch:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.switch img {
+    padding:0;
+    margin:0;
+    height:100%;
+}
+
+
+.tab-in {
+    transition: ease-in-out;
+    transition-duration: 0.5s;
+    height:77px;
+    width: 13vw;
+    position: relative;
+    top:-77px;
+    background: url("../graphics/backgrounds/button.png") no-repeat center;
+    background-size: contain;
+    border:none;
+    outline: none;
+    font-family: "BlackChancery";
+    font-size: 1.5rem;
+    color:white;
+    outline: none;
+    border:none;
+    padding-top: 20px;
+    text-shadow: 2px 2px 5px black;
+
+}
+
+.tab-in:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.chest {
+    width:25vw;
+    height:25vw;
+    left:1vw;    
+    z-index:2;    
+    overflow: hidden;
+    position: fixed;
+    left: -25vw;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    background: url('../graphics/chest/chest.gif') no-repeat center; 
+    background-size: contain;          
+}
+
+.btn {
+    margin-bottom:25px !important;
+    background-color: transparent;
+    font-family: "BlackChancery";
+    font-size: 30px;
+    color:white;
+    outline: none;
+    border:none;
+    text-shadow: 2px 2px 5px black;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.chest-opened {    
+    background: url('../graphics/chest/chest-opened.gif') no-repeat center; 
+    background-size: contain;  
+}
+
+.chest-closed {
+    background: url('../graphics/chest/close-chest.gif') no-repeat center; 
+    background-size: contain;  
+}
+
+.chest-open {
+    background: url('../graphics/chest/open-chest.gif') no-repeat center; 
+    background-size: contain;     
+}
+
+.chest-button {
+    position: absolute;
+    font-size: 2rem;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.collection {
+    position: fixed;
+    bottom: 20vh;
+    left:5vw;    
+    width: 15vw;
+    z-index:3;
+}
+.decoration-container {
+    width:4vw;
+    background-color: transparent;
+    border: none;    
+    z-index: 2;
+}
+
+.decoration {
+    width:3.5vw;
+    z-index:2;
+}
+
+img {
+    user-select: none;
+}
+
+.star {
+    width: 5vw;
+}
+
+.addStarlight {
+    animation: starlight 0.5s linear infinite alternate;    
+}
+
+.addLight {
+    animation: lightup 1s step-start infinite;
+}
+
+.light {
+    width:3vw;   
+}
+
+.candle {
+    animation: candlelight .6s linear infinite alternate;     
+}
+
+@keyframes starlight {
+    from {
+        filter: drop-shadow(1px 2px 10px #fff366);       
+    }
+    to {
+        filter: drop-shadow(0px 0px 15px #fff366);       
+    }
+}
+
+@keyframes candlelight {
+    from {
+        filter: drop-shadow(2px -25px 10px #fff366);       
+    }
+    to {
+        filter: drop-shadow(0px -28px 12px #fff366);       
+    }
+}
+
+@keyframes lightup {
+    0% {
+        opacity: 100%;
+    }
+    25% {
+        filter: drop-shadow(0px 0px 15px white);    
+        opacity: 100%;    
+    }
+    100% {
+        filter: drop-shadow(0px 0px 0px white);
+        opacity: 50%;    
+    }
+}
+
+.bounce-in {
+    animation-fill-mode: forwards;
+    animation-name: bounce-in;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+@keyframes bounce-in {
+    0%   { transform: scale(1,1)      translateY(40vh); }
+    10%  { transform: scale(1.1,.9)   translateY(0); }
+    30%  { transform: scale(.9,1.1)   translateY(-100px); }
+    50%  { transform: scale(1.05,.95) translateY(0); }
+    57%  { transform: scale(1,1)      translateY(-7px); }
+    64%  { transform: scale(1,1)      translateY(0); }
+    100% { transform: scale(1,1)      translateY(0); }
+}

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Season's Greetings From Reading TTE</title>
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="css/bootstrap-reboot.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <style>
+    #draggable {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+    }
+  </style>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simulate/1.0.1/jquery.simulate.js" integrity="sha256-e2sFjcdoFFgd0tT1KeXynB0ZlUFTMRQGLiVvlP6l400=" crossorigin="anonymous"></script>  
+  <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+
+  </script>
+</head>
+
+<body class="">
+  <div class="snow">
+
+  </div>
+  <div class="night">
+    &nbsp
+  </div>
+  <div class="tab-container">
+    <button class="tab-in" chest="bauble">Baubles</button>
+    <button class="tab-in" chest="candy-cane">Candy Canes</button>
+    <button class="tab-in" chest="star">Stars</button>
+    <button class="tab-in" chest="light">Lights</button>
+    <button class="tab-in" chest="ornament">Ornaments</button>
+    <button class="tab-in" chest="present">Presents</button>
+    <button class="tab-in" type="button" data-toggle="modal" data-target="#instructionsModal">Instructions</button>
+
+  </div>
+  <div class="tab-container-bottom">
+    <div class="switch-container">
+      <div id="slider"></div>   
+      <button class="switch light-switch" style="display: inline-block">
+        <img src="graphics/controls/switch-off.png">
+      </button> 
+      <button class="switch snow-switch" style="display: inline-block">
+          <img src="graphics/controls/snowflake.png">
+      </button>    
+      <button class="switch restart-switch" style="display: inline-block">
+        <img src="graphics/controls/restart.png">
+      </button>    
+      <button class="switch play-switch" style="display: inline-block">
+        <img src="graphics/controls/play.png">
+      </button>                     
+    </div>
+     
+  </div>  
+
+
+  <div class="collapse collection" id="baubles-collection">
+  </div>
+  <div class="collapse collection" id="candy-canes-collection">
+  </div>
+  <div class="collapse collection" id="stars-collection">
+  </div>
+  <div class="collapse collection" id="lights-collection">
+  </div>
+  <div class="collapse collection" id="ornaments-collection">
+  </div>
+  <div class="collapse collection" id="presents-collection">
+  </div>
+
+  <div class="chest bauble-chest">
+    <button class="btn chest-button" data-delayed-toggle="collapse" href="#baubles-collection" role="button"
+      aria-expanded="false" aria-controls="baubles-collection">
+      Baubles
+    </button>
+    </p>
+  </div>
+
+  <div class="chest candy-cane-chest">
+    <button class="btn chest-button" data-delayed-toggle="collapse" href="#candy-canes-collection" role="button"
+      aria-expanded="false" aria-controls="candy-canes-collection">
+      Candy Canes
+    </button>
+  </div>
+
+  <div class="chest star-chest">
+
+    <button class="btn chest-button" data-delayed-toggle="collapse" href="#stars-collection" role="button"
+      aria-expanded="false" aria-controls="stars-collection">
+      Stars
+    </button>
+  </div>
+
+  <div class="chest light-chest">
+    <button class="btn chest-button" data-delayed-toggle="collapse" href="#lights-collection" role="button"
+      aria-expanded="false" aria-controls="lights-collection">
+      Lights
+    </button>
+  </div>
+
+  <div class="chest ornament-chest">
+    <button class="btn chest-button" data-delayed-toggle="collapse" href="#ornaments-collection" role="button"
+      aria-expanded="false" aria-controls="ornaments-collection">
+      Ornaments
+    </button>
+  </div>
+
+  <div class="chest present-chest">
+    <button class="btn chest-button" data-delayed-toggle="collapse" href="#presents-collection" role="button"
+      aria-expanded="false" aria-controls="presents-collection">
+      Presents
+    </button>
+  </div>
+
+  <div class="tree-area">
+    <div class="droppable ui-widget-content tree-container">
+      <img id="tree" class="tree" src="graphics/trees/tree-1.png">
+    </div>
+  </div>
+
+  <div class="carollers" >
+    <div class="caroller"  style="margin-bottom: 30vh;">
+      <div id="caroller" style="background-image:url('./graphics/carollers/caroller-5.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>   
+    </div>       
+    <div class="caroller"  style="margin-bottom: 25vh;">
+      <div id="caroller" style="background-image:url('./graphics/carollers/caroller-6.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>       
+    </div> 
+    <div class="caroller"  style="margin-bottom: 20vh;">
+      <div id="caroller" style="background-image:url('./graphics/carollers/caroller-2.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>        
+    </div>
+    <div class="caroller"  style="margin-bottom: 15vh;">
+      <div id="caroller" style="background-image:url('./graphics/carollers/caroller-4.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>        
+    </div>
+    <div class="caroller" style="margin-bottom: 10vh;">
+      <div id="caroller" style=" background-image:url('./graphics/carollers/caroller-1.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>   
+    </div>       
+    <div class="caroller"  style="margin-bottom: 15vh;">
+      <div id="caroller" style="background-image:url('./graphics/carollers/caroller-3.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>       
+    </div> 
+    <div class="caroller"  style="margin-bottom: 20vh;">
+      <div id="caroller" style="background-image:url('./graphics/carollers/caroller-7.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>        
+    </div>
+    <div class="caroller" style="margin-bottom: 25vh;">
+      <div id="caroller" style="background-image:url('./graphics/carollers/caroller-9.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>        
+    </div>    
+    <div class="caroller"  style="margin-bottom: 30vh;">
+      <div id="caroller" style="background-image:url('./graphics/carollers/caroller-8.png'); background-size: 100%;" alt="">
+        <div class="mouth">
+        </div>  
+      </div>        
+    </div>            
+  </div>   
+
+  <div class="christmas-sign">
+      <img class="christmas-text" src="" alt="">
+  </div>  
+
+  <!-- Modal -->
+<div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Decorate the IM Christmas Tree!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        Merry Christmas!<br>
+        It is your turn to decorate the IM Christmas Tree. How will it look? What will you put on it? It is up to you!<br>
+        Hover the mouse at the top of the screen to bring up the options for your decorations. Click on a tab to show you a box of decorations at the bottom left of the screen.<br>
+        Click on the word on the box to open it then select your decoration by clicking and dragging it to the tree and then releasing the mouse button.<br>
+        If you have put a decoration in the wrong place, double click on it (it will be highlighted in white) and then click and drag to where you want it to be.<br>
+        If you want to remove a decoration, double click on it (it will be highlighted in white) and then click and drag it off the tree.<br>
+        Choose as many decorations as you like!<br>
+        Once you are happy with your tree hover over the bottom right of the screen to bring up the following options, right to left:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;Make it darker - click and drag the slider up and down to enjoy a christmas night or day.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;Switch on the lights - click the switch to turn on the lights on your tree.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;Make it snow - click the snowflake to make it snow, or to stop it snowing.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;Reset - click the green arrow to reset your tree.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;Play - If you are happy with everything click the play button!<br>
+        To see these instructions again hover at the top of the screen and select the 'instructions' tab.<br>
+        Have fun!<br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <audio src="sounds/christmas.wav"></audio>
+
+</body>
+
+</html>
