@@ -35,6 +35,38 @@
   <div class="night">
     &nbsp
   </div>
+
+  <button class="menu-button" type="button" data-toggle="collapse" data-target="#menucollapse" aria-expanded="false" >
+    <img class="menu-button-image" src="graphics/controls/menu.png" alt="">
+  </button>
+
+  <div class="collapse" id="menucollapse">
+    <div class="card card-body d-flex align-items-center">
+      <button class="switch ornaments-menu" style="display: inline-block">
+        <img src="graphics/controls/ornaments-menu.png">
+      </button> 
+        <button class="switch light-switch" style="display: inline-block">
+          <img src="graphics/controls/switch-off.png">
+        </button> 
+        <button class="switch snow-switch" style="display: inline-block">
+            <img src="graphics/controls/snowflake.png">
+        </button>    
+        <div id="slider"></div>           
+        <button class="switch play-switch" style="display: inline-block">
+          <img src="graphics/controls/play.png">
+        </button>    
+        <button class="switch restart-switch" style="display: inline-block">
+          <img src="graphics/controls/restart.png">
+        </button>     
+        <button class="switch" type="button" data-toggle="modal" data-target="#instructionsModal" style="display: inline-block">
+          <img src="graphics/controls/instructions.png">
+        </button>  
+        <button class="switch cancel-carollers" style="display: none">
+          <img src="graphics/controls/cancel-carollers.png">
+        </button>                                             
+      </div>    
+  </div>
+
   <div class="tab-container">
     <button class="tab-in" chest="bauble">Baubles</button>
     <button class="tab-in" chest="candy-cane">Candy Canes</button>
@@ -42,28 +74,8 @@
     <button class="tab-in" chest="light">Lights</button>
     <button class="tab-in" chest="ornament">Ornaments</button>
     <button class="tab-in" chest="present">Presents</button>
-    <button class="tab-in" type="button" data-toggle="modal" data-target="#instructionsModal">Instructions</button>
 
   </div>
-  <div class="tab-container-bottom">
-    <div class="switch-container">
-      <div id="slider"></div>   
-      <button class="switch light-switch" style="display: inline-block">
-        <img src="graphics/controls/switch-off.png">
-      </button> 
-      <button class="switch snow-switch" style="display: inline-block">
-          <img src="graphics/controls/snowflake.png">
-      </button>    
-      <button class="switch restart-switch" style="display: inline-block">
-        <img src="graphics/controls/restart.png">
-      </button>    
-      <button class="switch play-switch" style="display: inline-block">
-        <img src="graphics/controls/play.png">
-      </button>                     
-    </div>
-     
-  </div>  
-
 
   <div class="collapse collection" id="baubles-collection">
   </div>
@@ -201,20 +213,25 @@
       </div>
       <div class="modal-body">
 
-        Merry Christmas!<br>
+        <strong>Merry Christmas!</strong><br>
         It is your turn to decorate the IM Christmas Tree. How will it look? What will you put on it? It is up to you!<br>
-        Hover the mouse at the top of the screen to bring up the options for your decorations. Click on a tab to show you a box of decorations at the bottom left of the screen.<br>
+        Once you have decorated the tree make sure you press the PLAY button in the menu<br>
+        <strong>How to decorate your tree</strong><br>
+        Click on the star at the top right to bring up the menu:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Present box - click to show the options to decorate your tree<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Switch - click to turn on the lights on your tree.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Snowflake - click to make it snow, or to stop it snowing.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Slider - click and drag up and down to enjoy a christmas day or night.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Play - If you are happy with everything click the play button and enjoy the show!<br>        
+        &nbsp;&nbsp;&nbsp;&nbsp;Reset - click the green arrow to reset your tree.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Scroll - show these instructions again.<br>
+        <br>
+        To decorate your tree click on a tab at the top of the screen to show you a box of decorations at the bottom left of the screen.<br>
         Click on the word on the box to open it then select your decoration by clicking and dragging it to the tree and then releasing the mouse button.<br>
         If you have put a decoration in the wrong place, double click on it (it will be highlighted in white) and then click and drag to where you want it to be.<br>
         If you want to remove a decoration, double click on it (it will be highlighted in white) and then click and drag it off the tree.<br>
         Choose as many decorations as you like!<br>
-        Once you are happy with your tree hover over the bottom right of the screen to bring up the following options, right to left:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;Make it darker - click and drag the slider up and down to enjoy a christmas night or day.<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;Switch on the lights - click the switch to turn on the lights on your tree.<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;Make it snow - click the snowflake to make it snow, or to stop it snowing.<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;Reset - click the green arrow to reset your tree.<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;Play - If you are happy with everything click the play button!<br>
-        To see these instructions again hover at the top of the screen and select the 'instructions' tab.<br>
+        ...and don't forget to press the PLAY button to enjoy the show!
         Have fun!<br>
       </div>
     </div>

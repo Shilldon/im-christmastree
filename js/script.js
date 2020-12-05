@@ -9,10 +9,6 @@ $(document).ready(function () {
   
   $(".snow").css("background-image", "none");
   mouth("REST");
-  $("body").on("keydown", function(ev) {
-    console.log(String.fromCharCode(ev.which));
-    mouth(String.fromCharCode(ev.which));
-  })
 
   $(function() {
     $("#slider").slider({
@@ -107,17 +103,11 @@ $(document).ready(function () {
       $(this).draggable();
 
     })
-/*
-    $(".draggable-tree").draggable({
-      containment: "window",
-      drag: function (event, ui) {
-      }
-    });*/
 
     $(".switch").click(function () {
-    if($(this).hasClass("restart-switch")) {
+      if($(this).hasClass("restart-switch")) {
         restart();
-      }      
+      }     
       else if ($(this).attr("on") == 1) {
         if(!$(this).hasClass("play-switch")) { 
           $(this).attr("on", 0);
@@ -129,6 +119,9 @@ $(document).ready(function () {
             $(".snow").css("background-image", "none");
             $(this).css("filter", "none");
           } 
+          else if ($(this).hasClass("ornaments-menu")) {
+            hideDecorationsMenu();
+          }       
         }  
       }
       else {
@@ -143,10 +136,19 @@ $(document).ready(function () {
         }
         else if($(this).hasClass("play-switch")) {
           startCarolling();
-        }           
+        }     
+        else if ($(this).hasClass("ornaments-menu")) {
+          showDecorationsMenu();
+        }     
+        else if($(this).hasClass("cancel-carollers")) {
+          hideCarollers();
+          $(this).css("display","none");
+        }                      
       }
-    })
-  })
+    });
+  });
+
+
   $(".chest-button").click(function () {
     if ($(".chest").attr("chest-open") == 1) {
       $(".chest").addClass("chest-closed");
@@ -161,39 +163,13 @@ $(document).ready(function () {
     }
   })
 
-  $(".tab-container").mouseover(function () {
-    $(".tab-in").css("transform", "translate(0px,77px)");
-    $(".chest").each(function () {
-      if ($(this).attr("chest-open") == 1) {
-        $(this).addClass("chest-closed");
-        $(this).removeClass("chest-open");
-        restartAnimation($('.chest-closed'))
-        $(this).attr("chest-open", 0);
-        var $target = $($(this).find("button").attr("href"));
-        if ($target.hasClass('show')) {
-          $target.collapse('hide');
-        }
-      }
-    })
-  })
-
-  $(".tab-container").mouseout(function () {
-    $(".tab-in").css("transform", "translate(0px,-77px)");
-  })
-
-  $(".tab-container-bottom").mouseover(function () {
-    $(".switch-container").css("transform", "translate(-320px,0)");
-  })
-
-  $(".tab-container-bottom").mouseout(function () {
-    $(".switch-container").css("transform", "translate(0px,0)");
-  })
-
   $(".tab-in").click(function () {
     var chestName = $(this).attr("chest");
     var $chest = $("." + chestName + "-chest");
+    hideDecorationsMenu();
     if ($(this).attr("showing") == 1) {
-      $chest.css("transform", "translate(-25vw,0)");
+      $chest.removeClass("show-chest");      
+      $chest.addClass("hide-chest");
       $(this).attr("showing", 0);
       $chest.css("transition", "ease-in-out");
       $chest.css("transition-duration", "1s");
@@ -207,10 +183,13 @@ $(document).ready(function () {
         if (!$(this).hasClass(chestName + "-chest")) {
           $(this).css("transition", "ease-in-out");
           $(this).css("transition-duration", "1s");
-          $(this).css("transform", "translate(-25vw,0)");
+          $(this).removeClass("show-chest");      
+          $(this).addClass("hide-chest");
         }
       })
-      $chest.css("transform", "translate(25vw,0)");
+
+      $chest.addClass("show-chest");      
+      $chest.removeClass("hide-chest");
       $(this).attr("showing", 1);
       $chest.css("transition", "ease-in-out");
       $chest.css("transition-duration", "1s");
@@ -244,6 +223,15 @@ function populateIconTable() {
     for (i = 1; i <= value; i++) {
       var additionalClass = "";
       var gfx = "png";
+      switch(key) {
+        case "stars": tableDecorationWidth = 1; break;
+        case "baubles": tableDecorationWidth = 3; break;
+        case "lights": tableDecorationWidth = 3; break;
+        case "candy-canes": tableDecorationWidth = 3; break;
+        case "ornaments": tableDecorationWidth = 2; break;
+        case "presents" : tableDecorationWidth = 2; break;
+        default: tableDecorationWidth = 3; break;
+      }
       if (i == 1) {
         tableContent = tableContent + "<tr>";
       }
@@ -263,8 +251,9 @@ function populateIconTable() {
         gfx = "gif";
         additionalClass = "candle";
       }
-      tableContent = tableContent + `<td><img class="draggable-icon created-icon ui-widget-content decoration-container decoration ${additionalClass}" src='graphics/${key}/${key.slice(0, -1)}-${i}.${gfx}'></td>`;
-      if (i % 5 === 0) {
+      var decorationClass = key.slice(0,-1);
+      tableContent = tableContent + `<td><img class="draggable-icon created-icon ui-widget-content decoration-container decoration ${decorationClass} ${additionalClass}" src='graphics/${key}/${key.slice(0, -1)}-${i}.${gfx}'></td>`;
+      if (i % tableDecorationWidth === 0) {
         tableContent = tableContent + "</tr>";
       }
     }
@@ -384,44 +373,7 @@ function restart() {
 function mouth(letter) {
   var xMouth;
   var yMouth;
-  /*
-  switch(letter) {
-    case "A": xMouth = 0; yMouth = 0;
-    break;
-    case "O": xMouth = -9.076; yMouth = 0;
-    break;
-    case "L": xMouth = -18.152; yMouth = 0;
-    break;    
-    case "C": xMouth = 9.076; yMouth = 0;
-    break;      
-    case "J": xMouth = 0; yMouth = -6.23;
-    break;   
-    case "F": xMouth = -9.076; yMouth = -6.23;
-    break;      
-    case "E": xMouth = -18.152; yMouth = -6.23;
-    break;        
-    case "B": xMouth = 9.076; yMouth = -6.23;
-    break;    
-    case "Q": xMouth = 0; yMouth = 6.23;
-    break;
-    case "R": xMouth = -9.076; yMouth = 6.23;
-    break;
-    case "U": xMouth = -18.152; yMouth = 6.23;
-    break;    
-    case "I": xMouth = -9.076; yMouth = 6.23;
-    break;         
- 
-  }
-  if(letter=="REST") {
-    console.log(letter)
-    $(".mouth").hide();
-  }
-  else {
-    $(".mouth").fadeIn(0);
-    $(".mouth").css("background-position",`${xMouth}vh ${yMouth}vh`);       
-    console.log(letter)
-  }
-*/
+
   switch(letter) {
     case "A": xMouth = 0; yMouth = 0;
     break;
@@ -450,13 +402,11 @@ function mouth(letter) {
  
   }
   if(letter=="REST") {
-    console.log(letter)
     $(".mouth").hide();
   }
   else {
     $(".mouth").fadeIn(0);
     $(".mouth").css("background-position",`${xMouth}% ${yMouth}%`);       
-    console.log(letter)
   }
 }
 
@@ -475,6 +425,10 @@ function hideCarollers() {
 }
 
 function startCarolling() {
+  //hide the menus
+  $("#menucollapse").collapse('hide');
+  hideDecorationsMenu();
+  $(".menu-button").fadeOut(500);
 
   //switch the lights on
   if ($(".light-switch").attr("on")!=1) {
@@ -500,12 +454,16 @@ $(".chest").each(function () {
 
 //check if any of the tabs are marked as showing a chest, if so, reset and hide chest
 //with a delay to allow time for the chest to close
+//then add the 'remove carollers' option to the menu
 setTimeout(function() {
   $(".tab-in").each(function() { 
     var chestName = $(this).attr("chest");
     var $chest = $("." + chestName + "-chest");
     if ($(this).attr("showing") == 1) {
-      $chest.css("transform", "translate(-25vw,0)");
+      $chest.removeClass("show-chest");      
+      $chest.addClass("hide-chest");     
+      console.log("hiding chest") 
+      //$chest.css("transform", "translate(-25vw,0)");
       $(this).attr("showing", 0);
       $chest.css("transition", "ease-in-out");
       $chest.css("transition-duration", "1s");
@@ -517,6 +475,7 @@ setTimeout(function() {
 
     }
   });
+  $(".cancel-carollers").css("display","inline-block");
 },1000)
 
 
@@ -593,9 +552,9 @@ setTimeout(function() {
 
   time+=950; //23750
   setTimeout(function() { mouth("Q")},time); //GOOD    
-  time+=400;
+  time+=450;
   setTimeout(function() { mouth("O")},time); //Ti 
-  time+=650;
+  time+=600;
   setTimeout(function() { mouth("C")},time); //DINGS 
   time+=350;
   setTimeout(function() { mouth("E")},time); //WE  
@@ -603,16 +562,16 @@ setTimeout(function() {
   setTimeout(function() { mouth("C")},time); //BRING  
   time+=600;
   setTimeout(function() { mouth("Q")},time); //TO
-  time+=500;
+  time+=600;
   setTimeout(function() { mouth("O")},time); //YOU 
-  time+=550;
+  time+=500;
   setTimeout(function() { mouth("A")},time); //AND 
   time+=400;
   setTimeout(function() { mouth("O")},time); //YOUR        
-  time+=350;
+  time+=450;
   setTimeout(function() { mouth("J")},time); //KIN
 
-  time+=1000; //17100
+  time+=900; //17100
 
   setTimeout(function() { mouth("E")},time); //WE
   time += 500; //17500
@@ -654,19 +613,16 @@ setTimeout(function() {
     $(".christmas-text").attr("src","./graphics/backgrounds/christmas-text.gif");
   }, time);
 
-  time+=5000;
-  setTimeout(function() {
-    $(".christmas-sign").css("transform","scale(.25,.25) translate(-400%,-300%)");
-  }, time); 
 
-  time+=1000;
+
+  time+=5000;
   setTimeout(function() {
     $("audio").attr("src","./sounds/jinglebells.wav"); 
     $("audio").trigger("play");    
     //make it snow
     if ($(".snow-switch").attr("on")!=1) {
       $(".snow").css("background-image", "");
-      $(this).css("filter", "drop-shadow(0px 0px 20px #ffffff)");
+      $(".snow-switch").css("filter", "drop-shadow(2px 0px 0px white) drop-shadow(-2px 0px 0px white) drop-shadow(0px 2px 0px white) drop-shadow(0px -2px 0px white)");
       $(".snow-switch").attr("on",1);
     }    
 
@@ -675,8 +631,35 @@ setTimeout(function() {
     $(".night").css("opacity", 0.75);
   }, time);
 
+  time+=8000;
+  setTimeout(function() {
+    $(".christmas-sign").fadeOut(1000);
+    $(".menu-button").fadeIn(500);    
+  }, time); 
 
+}
 
+function showDecorationsMenu() {
+  $(".ornaments-menu").find("img").attr("src","./graphics/controls/ornaments-menu-open.png");
+  $(".tab-in").addClass("slide-down");
+  $(".chest").each(function () {
+    if ($(this).attr("chest-open") == 1) {
+      $(this).addClass("chest-closed");
+      $(this).removeClass("chest-open");
+      restartAnimation($('.chest-closed'))
+      $(this).attr("chest-open", 0);
+      var $target = $($(this).find("button").attr("href"));
+      if ($target.hasClass('show')) {
+        $target.collapse('hide');
+      }
+    }
+  })
+}
+
+function hideDecorationsMenu() {
+  $(".ornaments-menu").attr("on", 0);
+  $(".ornaments-menu").find("img").attr("src","./graphics/controls/ornaments-menu.png");
+  $(".tab-in").removeClass("slide-down"); 
 }
 
 

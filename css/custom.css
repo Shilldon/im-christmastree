@@ -54,8 +54,9 @@ button:focus {
     transition-duration: 1s;
     transition-property: transform;    
     transform: translate(-50%,-40%) scale(0.01,0.01);
-    height: 60vh;
-    width: 60vw;
+
+    height: 525px;
+    width: 750px;
     background-image: url(../graphics/backgrounds/christmas-sign.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -85,13 +86,15 @@ button:focus {
 
 .tree-container {
     background-color: transparent;
-    height: 70vh;
-    border: none;
+    padding-top: 25px;
+    width: 450px;
+    height: 475px;
     z-index:0;
+    border: none;
 }
 
 .tree {
-    height: 60vh;
+    width: 450px;
 }
 
 .tree-area {
@@ -146,31 +149,6 @@ button:focus {
     transition-duration: 0.5s;   
 }
 
-.save-options {
-    position: absolute;
-    top:25%;
-    left:50%;
-    transform: translate(-50%,0);
-}
-
-.save-options img {
-    width: 75%;
-    transition-duration: 0.25s;
-}
-
-.save-options img:active {
-    width: 75%;
-    transform: scale(0.75,0.75);
-}
-
-.save-switch {
-    transition-duration: 0.5s;
-}
-.save-switch:active {
-    transform:scale(0.8,0.8);
-    filter: brightness(0.3);   
-}
-
 .restart-switch {
     transition-duration: 0.25s;
 }
@@ -190,9 +168,10 @@ button:focus {
 }
 
 .switch {
+    padding: 10px;
     float:right;
     position: relative;
-    height: 70px;
+    height: 90px;
     background-color: transparent;
     border: none;
     outline: none;
@@ -209,20 +188,42 @@ button:focus {
     height:100%;
 }
 
+.menu-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.menu-button-image {
+    height: 100px;
+}
+
+#menucollapse {
+    width: 125px;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    z-index: 5;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+}
 
 .tab-in {
     transition: ease-in-out;
     transition-duration: 0.5s;
-    height:77px;
-    width: 13vw;
+    height:50px;
+    width: 100px;
     position: relative;
-    top:-77px;
+    top:-50px;
     background: url("../graphics/backgrounds/button.png") no-repeat center;
     background-size: contain;
     border:none;
     outline: none;
     font-family: "BlackChancery";
-    font-size: 1.5rem;
+    font-size: 1rem;
     color:white;
     outline: none;
     border:none;
@@ -231,25 +232,36 @@ button:focus {
 
 }
 
+.slide-down {
+    transform: translate(0,50px);
+}
+
 .tab-in:focus {
     outline: none;
     box-shadow: none;
 }
 
 .chest {
-    width:25vw;
-    height:25vw;
-    left:1vw;    
+    width:200px;
+    height:200px;
     z-index:2;    
     overflow: hidden;
     position: fixed;
-    left: -25vw;
+    left: -200px;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;  
     background: url('../graphics/chest/chest.gif') no-repeat center; 
     background-size: contain;          
+}
+
+.hide-chest {
+    transform: translate(-200px,0);
+}
+
+.show-chest {
+    transform: translate(200px,0);
 }
 
 .btn {
@@ -290,22 +302,22 @@ button:focus {
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
 .collection {
     position: fixed;
-    bottom: 20vh;
-    left:5vw;    
-    width: 15vw;
+    bottom: 125px;
+    left:90px;    
+    width: 120px;
     z-index:3;
 }
 .decoration-container {
-    width:4vw;
+    width:120px;
     background-color: transparent;
     border: none;    
     z-index: 2;
 }
 
 .decoration {
-    width:3.5vw;
     z-index:2;
 }
 
@@ -326,7 +338,15 @@ img {
 }
 
 .light {
-    width:3vw;   
+    width:20px;   
+}
+
+.bauble {
+    width: 40px;
+}
+
+.ornament {
+    width: 45px;
 }
 
 .candle {
@@ -378,4 +398,199 @@ img {
     57%  { transform: scale(1,1)      translateY(-7px); }
     64%  { transform: scale(1,1)      translateY(0); }
     100% { transform: scale(1,1)      translateY(0); }
+}
+
+
+@media (min-width: 1280px) {
+    .chest {
+        width: 300px;
+        height: 300px;
+        left: -300px;
+    }
+    .hide-chest {
+        transform: translate(-300px,0);
+    }
+    .show-chest {
+        transform: translate(300px,0);
+    }    
+    .christmas-sign {
+        height: 575px;
+        width: 750px;        
+    }
+
+    .christmas-text {
+        bottom: 140px;
+        right:75px;
+        position: absolute;
+        width: 550px;
+    }
+
+
+    .collection {
+        bottom: 125px;
+        left:80px;    
+        width: 160px;
+    }
+    .decoration-container {
+        width:120px;
+    }
+    
+    .light {
+        width:45px;   
+    }
+    
+    .bauble {
+        width: 40px;
+    }
+    
+    .ornament {
+        width: 50px;
+    }
+
+    .candy-cane {
+        width: 45px;
+    }
+
+    .star {
+        width: 100px;
+    }
+    .present {
+        width: 75px;
+    }
+    .tree-container {
+        padding-top: 25px;
+        width: 600px;
+        height: 675px;
+    }
+    
+    .tree {
+        width: 600px;
+    }
+
+    .slide-down {
+        transform: translate(0,80px);
+    }
+
+    .tab-in {
+        height:75px;
+        width: 155px;
+        top:-80px;
+        font-size: 1.25rem;        
+    }
+
+    #caroller {
+        height: 275px;
+        width: 139.48px;
+    }
+
+    .caroller {
+        height: 275px;
+        width: 139.48px;
+    }
+
+    .mouth {
+        width: 51.82px;
+        height: 37.26px;
+        top: 135.21px;
+        left: 47.8px;
+    }
+
+
+}
+
+@media (min-width: 1920px) {
+    .chest {
+        width: 350px;
+        height: 350px;
+        left: -350px;
+    }
+    .hide-chest {
+        transform: translate(-350px,0);
+    }
+    .show-chest {
+        transform: translate(350px,0);
+    }    
+
+    .christmas-sign {
+        height: 665px;
+        width: 950px;        
+    }
+
+    .christmas-text {
+        bottom: 120px;
+        right:75px;
+        position: absolute;
+        width: 700px;
+    }
+
+    .collection {
+        bottom: 155px;
+        left:90px;    
+        width: 180px;
+    }
+    .decoration-container {
+        width:120px;
+    }
+    
+    .light {
+        width:60px;   
+    }
+    
+    .bauble {
+        width: 55px;
+    }
+    
+    .ornament {
+        width: 70px;
+    }
+
+    .candy-cane {
+        width: 60px;
+    }
+
+    .star {
+        width: 130px;
+    }
+    .present {
+        width: 90px;
+    }
+    .tree-container {
+        padding-top: 50px;
+        width: 750px;
+        height: 885px;
+    }
+    
+    .tree {
+        width: 750px;
+    }
+
+
+    .slide-down {
+        transform: translate(0,150px);
+    }
+
+    .tab-in {
+        height:150px;
+        width: 250px;
+        top:-150px;
+        font-size: 2.5rem;        
+    }
+
+
+    #caroller {
+        height: 324px;
+        width: 164.33px;
+    }
+
+    .caroller {
+        height: 324px;
+        width: 164.33px;
+    }
+
+    .mouth {
+        width: 61.05px;
+        height: 43.9px;
+        top: 155.21px;
+        left:56.8px;
+    }
 }
