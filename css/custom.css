@@ -7,6 +7,12 @@ body {
     background-size: cover;
 }
 
+/*removed user-select for all images to prevent image drag*/
+img {
+    user-select: none;
+}
+
+/*standard button styling*/
 button {
     border: none;
     background: transparent;
@@ -17,6 +23,8 @@ button:focus {
     outline: none;
 }
 
+/*Styling for carollers*/
+/*Main container for caroller images*/
 .carollers {
     pointer-events: none;
     position: absolute;
@@ -26,6 +34,7 @@ button:focus {
     transform: translate(-50%);
 }
 
+/*individual carollers containers */
 .caroller {
     align-self: flex-end;
     animation-duration: 1s;
@@ -39,12 +48,18 @@ button:focus {
     opacity: 0;
 }
 
-#caroller {
-
-    height: 30vh;
-    width: 15.216vh;
+.mouth {
+    position: absolute;
+    width: 37.15%;
+    height: 13.55%;
+    top: 49%;
+    left: 35%;
+    background-image: url(../graphics/mouth/mouths.png);
+    background-position: 0 0;
+    background-size: 400%, 300%;
 }
 
+/*Christmas sign styling*/
 .christmas-sign {
     pointer-events: none;
     position: absolute;
@@ -54,7 +69,6 @@ button:focus {
     transition-duration: 1s;
     transition-property: transform;    
     transform: translate(-50%,-40%) scale(0.01,0.01);
-
     height: 525px;
     width: 750px;
     background-image: url(../graphics/backgrounds/christmas-sign.png);
@@ -69,21 +83,13 @@ button:focus {
     width: 40vw;
 }
 
+/*
 .control-arrow {
     height: 5vh;
 }
+*/
 
-.mouth {
-    position: absolute;
-    width: 37.15%;
-    height: 13.55%;
-    top: 49%;
-    left: 35%;
-    background-image: url(../graphics/mouth/mouths.png);
-    background-position: 0 0;
-    background-size: 400%, 300%;
-}
-
+/*Tree styling*/
 .tree-container {
     background-color: transparent;
     padding-top: 25px;
@@ -102,8 +108,9 @@ button:focus {
     height: 100%;
     display: flex;
     justify-content: center;
-
 }
+
+/*Overlays*/
 .night {
     height:100%;
     width:100%;
@@ -125,30 +132,42 @@ button:focus {
     z-index:1;
 }
 
-
+/*Container for decorations menus*/
 .tab-container {
     z-index:6;
     width:100%;
     height:80px;
 }
 
-.tab-container-bottom {
-    position: absolute;
-    right:0;
-    bottom:0;
-    z-index:6;
-    width:50%;
-    height:110px;
-}
-
-.switch-container {
-    position: relative;
-    float: right;
-    right:-320px;
+/*Decoration menu styling*/
+.tab-in {
     transition: ease-in-out;
-    transition-duration: 0.5s;   
+    transition-duration: 0.5s;
+    height:50px;
+    width: 100px;
+    position: relative;
+    top:-50px;
+    background: url("../graphics/backgrounds/button.png") no-repeat center;
+    background-size: contain;
+    border:none;
+    outline: none;
+    font-family: "BlackChancery";
+    font-size: 1rem;
+    color:white;
+    outline: none;
+    border:none;
+    padding-top: 20px;
+    text-shadow: 2px 2px 5px black;
+
 }
 
+.tab-in:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+/*Individual button styles*/
 .restart-switch {
     transition-duration: 0.25s;
 }
@@ -198,6 +217,7 @@ button:focus {
     height: 100px;
 }
 
+/*Collapsible menu styles*/
 #menucollapse {
     width: 125px;
     position: absolute;
@@ -210,37 +230,6 @@ button:focus {
     background-color: transparent;
     border: none;
 }
-
-.tab-in {
-    transition: ease-in-out;
-    transition-duration: 0.5s;
-    height:50px;
-    width: 100px;
-    position: relative;
-    top:-50px;
-    background: url("../graphics/backgrounds/button.png") no-repeat center;
-    background-size: contain;
-    border:none;
-    outline: none;
-    font-family: "BlackChancery";
-    font-size: 1rem;
-    color:white;
-    outline: none;
-    border:none;
-    padding-top: 20px;
-    text-shadow: 2px 2px 5px black;
-
-}
-
-.slide-down {
-    transform: translate(0,50px);
-}
-
-.tab-in:focus {
-    outline: none;
-    box-shadow: none;
-}
-
 .chest {
     width:200px;
     height:200px;
@@ -280,6 +269,7 @@ button:focus {
     box-shadow: none;
 }
 
+/*Styling for animation of decorations chests*/
 .chest-opened {    
     background: url('../graphics/chest/chest-opened.gif') no-repeat center; 
     background-size: contain;  
@@ -303,6 +293,7 @@ button:focus {
     transform: translate(-50%,-50%);
 }
 
+/*styling for containers holding individual decorations*/
 .collection {
     position: fixed;
     bottom: 125px;
@@ -310,6 +301,7 @@ button:focus {
     width: 120px;
     z-index:3;
 }
+
 .decoration-container {
     width:120px;
     background-color: transparent;
@@ -321,10 +313,7 @@ button:focus {
     z-index:2;
 }
 
-img {
-    user-select: none;
-}
-
+/*styling and animations for decorations and lit objects*/
 .star {
     width: 5vw;
 }
@@ -341,6 +330,10 @@ img {
     width:20px;   
 }
 
+.candle {
+    animation: candlelight .6s linear infinite alternate;     
+}
+
 .bauble {
     width: 40px;
 }
@@ -349,10 +342,7 @@ img {
     width: 45px;
 }
 
-.candle {
-    animation: candlelight .6s linear infinite alternate;     
-}
-
+/*animations*/
 @keyframes starlight {
     from {
         filter: drop-shadow(1px 2px 10px #fff366);       
@@ -390,6 +380,7 @@ img {
     animation-name: bounce-in;
     animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
 }
+
 @keyframes bounce-in {
     0%   { transform: scale(1,1)      translateY(40vh); }
     10%  { transform: scale(1.1,.9)   translateY(0); }

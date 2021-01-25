@@ -10,32 +10,26 @@
   <link rel="stylesheet" href="css/bootstrap-grid.css">
   <link rel="stylesheet" href="css/bootstrap-reboot.css">
   <link rel="stylesheet" href="css/custom.css">
-  <style>
-    #draggable {
-      width: 150px;
-      height: 150px;
-      padding: 0.5em;
-    }
-  </style>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simulate/1.0.1/jquery.simulate.js" integrity="sha256-e2sFjcdoFFgd0tT1KeXynB0ZlUFTMRQGLiVvlP6l400=" crossorigin="anonymous"></script>  
   <script src="js/bootstrap.js"></script>
   <script src="js/bootstrap.bundle.js"></script>
   <script src="js/script.js"></script>
-  <script>
-
-  </script>
 </head>
 
 <body class="">
+  <!--Empty div to create and show falling snow gif on selecting snowfall option-->
   <div class="snow">
 
   </div>
+
+  <!--Empty div to enable black background colour opacity to be varied to simulate day and night time-->
   <div class="night">
     &nbsp
   </div>
 
+  <!--Main menu-->
   <button class="menu-button" type="button" data-toggle="collapse" data-target="#menucollapse" aria-expanded="false" >
     <img class="menu-button-image" src="graphics/controls/menu.png" alt="">
   </button>
@@ -67,6 +61,7 @@
       </div>    
   </div>
 
+  <!--Decoration options displayed when option selected in main menu-->
   <div class="tab-container">
     <button class="tab-in" chest="bauble">Baubles</button>
     <button class="tab-in" chest="candy-cane">Candy Canes</button>
@@ -74,9 +69,9 @@
     <button class="tab-in" chest="light">Lights</button>
     <button class="tab-in" chest="ornament">Ornaments</button>
     <button class="tab-in" chest="present">Presents</button>
-
   </div>
 
+  <!--Empty divs to be populated on selecting decoration option and opening chest-->
   <div class="collapse collection" id="baubles-collection">
   </div>
   <div class="collapse collection" id="candy-canes-collection">
@@ -90,6 +85,7 @@
   <div class="collapse collection" id="presents-collection">
   </div>
 
+  <!--Chests to be animated and slide onto screen when relevant option selected-->
   <div class="chest bauble-chest">
     <button class="btn chest-button" data-delayed-toggle="collapse" href="#baubles-collection" role="button"
       aria-expanded="false" aria-controls="baubles-collection">
@@ -134,12 +130,14 @@
     </button>
   </div>
 
+  <!--Main tree image - labelled with "droppable" class to enable decorations to be dropped into this area-->
   <div class="tree-area">
     <div class="droppable ui-widget-content tree-container">
       <img id="tree" class="tree" src="graphics/trees/tree-1.png">
     </div>
   </div>
 
+  <!--Div to contain carollers to animate on seleting play option - to slide on screen -->
   <div class="carollers" >
     <div class="caroller"  style="margin-bottom: 30vh;">
       <div id="caroller" style="background-image:url('./graphics/carollers/caroller-5.png'); background-size: 100%;" alt="">
@@ -197,11 +195,12 @@
     </div>            
   </div>   
 
+  <!--Merry CHristmas sign to be displayed on completion of caroller animation-->
   <div class="christmas-sign">
       <img class="christmas-text" src="" alt="">
   </div>  
 
-  <!-- Modal -->
+  <!--Instructions Modal -->
 <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -239,7 +238,7 @@
 </div>
 
 
-
+<!--Audio element to be played on button click-->
   <audio src="sounds/christmas.wav"></audio>
 
 </body>
